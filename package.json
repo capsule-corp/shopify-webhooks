@@ -1,0 +1,40 @@
+{
+	"name": "shopify-webhooks",
+	"version": "1.0.0",
+	"description": "Receive Shopify webhooks in your app without any middleware.",
+	"author": {
+		"email": "mokht@rmi.al",
+		"name": "Mokhtar Mial",
+		"url": "https://www.mokhtar.dev"
+	},
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/m5r/shopify-webhooks.git"
+	},
+	"bugs": {
+		"url": "https://github.com/m5r/shopify-webhooks/issues"
+	},
+	"homepage": "https://github.com/m5r/shopify-webhooks/blob/master/README.md",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"clean": "rm -rf dist",
+		"compile": "tsc -d",
+		"pretest": "npm run clean && npm run compile",
+		"test": "echo 'test'"
+	},
+	"dependencies": {
+		"@shopify/network": "1.4.6",
+		"safe-compare": "1.1.4"
+	},
+	"devDependencies": {
+		"@types/isomorphic-fetch": "0.0.35",
+		"@types/node": "13.7.1",
+		"@types/safe-compare": "1.1.0",
+		"typescript": "3.7.5"
+	},
+	"peerDependencies": {
+		"isomorphic-fetch": ">=2.0.0"
+	}
+}

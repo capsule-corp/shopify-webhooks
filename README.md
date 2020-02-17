@@ -1,6 +1,6 @@
 # `shopify-webhooks`
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE.md)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 Receive Shopify webhooks in your app without any middleware.
 
@@ -102,8 +102,8 @@ In your terminal
 `$ npm install -S isomorphic-fetch`
 
 In your app
-`import 'isomorphic-fetch'`
+`import "isomorphic-fetch"`
 
 OR
 
-`require('isomorphic-fetch')`
+`require("isomorphic-fetch")`

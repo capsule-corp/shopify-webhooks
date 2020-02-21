@@ -1,5 +1,5 @@
 {
-	"name": "shopify-webhooks",
+	"name": "@capsule-corp/shopify-webhooks",
 	"version": "1.0.1",
 	"description": "Receive Shopify webhooks in your app without any middleware.",
 	"author": {
@@ -10,12 +10,15 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/m5r/shopify-webhooks.git"
+		"url": "git+https://github.com/capsule-corp/shopify-webhooks.git"
 	},
 	"bugs": {
-		"url": "https://github.com/m5r/shopify-webhooks/issues"
+		"url": "https://github.com/capsule-corp/shopify-webhooks/issues"
 	},
-	"homepage": "https://github.com/m5r/shopify-webhooks/blob/master/README.md",
+	"publishConfig": {
+		"registry": "https://npm.pkg.github.com/"
+	},
+	"homepage": "https://github.com/capsule-corp/shopify-webhooks/blob/master/README.md",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"scripts": {

@@ -1,5 +1,7 @@
 export { receiveWebhook } from "./receive-webhook";
 
-export { registerWebhook, Options, ApiVersion } from "./register-webhook";
+export { registerWebhook } from "./register-webhook";
 
-export { WebhookHeader, Topic, WebhookState } from "./types";
+export { unregisterWebhooks } from "./unregister-webhooks";
+
+export { WebhookHeader, Topic, WebhookState, ApiVersion } from "./types";

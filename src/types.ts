@@ -87,3 +87,11 @@ export type WebhookState<Payload = any> = {
 	domain: string;
 	payload: Payload;
 };
+
+export enum ApiVersion {
+	July19 = "2019-07",
+	October19 = "2019-10",
+	January20 = "2020-01",
+	Unstable = "unstable",
+	Unversioned = "unversioned",
+}

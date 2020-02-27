@@ -33,9 +33,9 @@
 	},
 	"devDependencies": {
 		"@types/isomorphic-fetch": "0.0.35",
-		"@types/node": "13.7.1",
+		"@types/node": "13.7.6",
 		"@types/safe-compare": "1.1.0",
-		"typescript": "3.7.5"
+		"typescript": "3.8.2"
 	},
 	"peerDependencies": {
 		"isomorphic-fetch": ">=2.0.0"

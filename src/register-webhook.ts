@@ -1,46 +1,53 @@
-import fetch from "isomorphic-fetch";
-import { Header, Method } from "@shopify/network";
+import { ApiVersion, Topic, TopicGraphQL } from "./types";
+import { registerWebhookREST } from "./register-webhook-rest";
+import { registerWebhookGraphQL } from "./register-webhook-graphql";
 
-import { ApiVersion, Topic, WebhookHeader } from "./types";
+type OptionsREST = {
+	topic: Topic;
+	requestType: "rest";
+};
+
+type OptionsGraphQL = {
+	topic: TopicGraphQL;
+	requestType: "graphql";
+};
+
+type OptionsRequestType = OptionsREST | OptionsGraphQL;
 
 type Options = {
 	address: string;
-	topic: Topic;
 	accessToken: string;
 	shop: string;
 	apiVersion: ApiVersion;
+} & OptionsRequestType;
+
+function isTopicREST(topic: string): topic is Topic {
+	return topic.toLowerCase() === topic;
 }
 
-export async function registerWebhook({
-	address,
-	topic,
-	accessToken,
-	shop,
-	apiVersion,
-}: Options): Promise<{ success: boolean; result: any; }> {
-	const body = {
-		webhook: {
-			topic,
-			address,
-			format: "json",
-		},
-	};
-	const response = await fetch(
-		`https://${shop}/admin/api/${apiVersion}/webhooks.json`,
-		{
-			method: Method.Post,
-			body: JSON.stringify(body),
-			headers: {
-				[WebhookHeader.AccessToken]: accessToken,
-				[Header.ContentType]: "application/json",
-			},
-		},
-	);
-	const result = await response.json();
+function isTopicGraphQL(topic:string): topic is TopicGraphQL {
+	return topic.toUpperCase() === topic;
+}
 
-	if (result?.webhook?.id) {
-		return { success: true, result };
-	} else {
-		return { success: false, result };
+export async function registerWebhook(options: Options): Promise<{ success: boolean; result: any; }> {
+	const {
+		requestType,
+		topic,
+		...sharedParams
+	} = options;
+
+	switch (requestType) {
+		case "rest":
+			if (!isTopicREST(topic)) {
+				throw new Error("Topic is not a REST API compatible topic");
+			}
+
+			return registerWebhookREST({ ...sharedParams, topic });
+		case "graphql":
+			if (!isTopicGraphQL(topic)) {
+				throw new Error("Topic is not a REST API compatible topic");
+			}
+
+			return registerWebhookGraphQL({ ...sharedParams, topic })
 	}
 }

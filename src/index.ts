@@ -4,4 +4,4 @@ export { registerWebhook } from "./register-webhook";
 
 export { unregisterWebhooks } from "./unregister-webhooks";
 
-export { WebhookHeader, Topic, WebhookState, ApiVersion } from "./types";
+export { WebhookHeader, Topic, TopicGraphQL, WebhookState, ApiVersion } from "./types";

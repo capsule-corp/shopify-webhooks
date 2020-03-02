@@ -1,6 +1,6 @@
 {
 	"name": "@capsule-corp/shopify-webhooks",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "Receive Shopify webhooks in your app without any middleware.",
 	"author": {
 		"email": "mokht@rmi.al",
